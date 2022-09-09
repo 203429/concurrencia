@@ -43,6 +43,7 @@ def get_api_data():
     if response.status_code == 200 :
         data_list = response.json()
         for data in data_list:
+            print("Escribiendo en la base de datos: " + str(data["id"]))
             write_db(data["title"])
     else:
         pass
@@ -59,12 +60,12 @@ def get_api_service():
     for x in range(0,50):
         th_service = threading.Thread(target=get_service, args=[x])
         th_service.start()
-        time.sleep(1)
+        time.sleep(0.3)
 
 def get_service(dato=0):
     response = requests.get('https://randomuser.me/api/')
     if response.status_code == 200:
-        print(f'Dato = {dato}')
+        # print(f'Dato = {dato}')
         results = response.json().get('results')
         name = results[0].get('name').get('first')
         print(name)
