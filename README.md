@@ -1,5 +1,5 @@
-# Dependencias
-## Actividad 3 - act_concurrencia
+# Dependencias necesitadas
+## Actividad 3 - act_concurrencia.py
 ```bash
 pip install psycopg2
 ```
